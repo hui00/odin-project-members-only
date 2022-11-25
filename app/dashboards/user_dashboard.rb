@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class PostDashboard < Administrate::BaseDashboard
+class UserDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,9 +9,12 @@ class PostDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    body: Field::String,
-    title: Field::String,
-    user: Field::BelongsTo,
+    email: Field::String,
+    encrypted_password: Field::String,
+    posts: Field::HasMany,
+    remember_created_at: Field::DateTime,
+    reset_password_sent_at: Field::DateTime,
+    reset_password_token: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -23,18 +26,21 @@ class PostDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    body
-    title
-    user
+    email
+    encrypted_password
+    posts
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    body
-    title
-    user
+    email
+    encrypted_password
+    posts
+    remember_created_at
+    reset_password_sent_at
+    reset_password_token
     created_at
     updated_at
   ].freeze
@@ -43,9 +49,12 @@ class PostDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    body
-    title
-    user
+    email
+    encrypted_password
+    posts
+    remember_created_at
+    reset_password_sent_at
+    reset_password_token
   ].freeze
 
   # COLLECTION_FILTERS
@@ -60,10 +69,10 @@ class PostDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how posts are displayed
+  # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(post)
-  #   "Post ##{post.id}"
+  # def display_resource(user)
+  #   "User ##{user.id}"
   # end
 end
