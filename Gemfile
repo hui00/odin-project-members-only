@@ -6,6 +6,9 @@ ruby "3.1.2"
 gem "prettier"
 gem "dotenv-rails"
 
+gem "administrate"
+gem "devise"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
@@ -63,6 +66,15 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "rails_live_reload"
+  gem "pry-byebug"
+  gem "pry-rails"
+  gem "pry-doc"
+  gem "pry-stack_explorer"
+  gem "pry-coolline"
+  gem "awesome_print"
+  gem "better_errors"
+  gem "pry-rescue"
+  gem "pry-theme"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
