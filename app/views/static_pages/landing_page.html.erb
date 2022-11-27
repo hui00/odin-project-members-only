@@ -1,5 +1,16 @@
-<div>
-  <h1 class="font-bold text-3xl">StaticPages#landing_page</h1>
-  <p>Find me in app/views/static_pages/landing_page.html.erb</p>
-  <p>Find me in app/views/static_pages/landing_page.html.erb</p>
+<div class="min-w-full">
+
+  
+  <div class="mb-4">
+    <% if user_signed_in? %>
+      <%= button_to "Sign out", destroy_user_session_path ,method: :delete, class:"px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80" %>
+    <% else %>
+      <%= link_to "Sign in", new_user_session_path, class:"px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80" %>
+  </div>
+    <div>
+    <% end %>
+    <% @Posts.each do |post| %>
+      <%= render "card", post: post %>
+    <% end %>
+  </div>
 </div>
