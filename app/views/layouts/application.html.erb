@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>OdinProjectMembersOnly</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
-  <body class="">
-    <%= render "layouts/flash" %>
-    <main class="container flex-col mx-auto mt-10 px-5 flex items-center justify-center content-center">
-      <%= yield %>
-    </main>
-  </body>
+
+<head>
+  <title>OdinProjectMembersOnly</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body class="">
+  <%= render "layouts/flash" %>
+  <main class="container flex-col mx-auto mt-10 px-5 flex items-center justify-center content-center">
+    <%= yield %>
+  </main>
+</body>
+
 </html>
