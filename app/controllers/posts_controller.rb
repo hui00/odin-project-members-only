@@ -1,6 +1,17 @@
 class PostsController < ApplicationController
+  add_flash_types :wronguser
   before_action :authenticate_user!
   before_action :set_post, only: %i[show edit update destroy]
+  before_action :job_owner, only: %i[edit update destroy]
+
+  # before_action :correct_user, only: [:edit, :update, :destroy]
+  def job_owner
+    unless @post.user_id == current_user.id
+      redirect_to root_path,
+                  wronguser:
+                    "Access denied as you are not the author of this post"
+    end
+  end
 
   # GET /posts or /posts.json
   def index
